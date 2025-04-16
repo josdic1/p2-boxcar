@@ -1,5 +1,5 @@
-import { useEffect, useContext } from "react"
-
+import { useState, useEffect, useContext } from "react"
+import Filter from "../pages/Filter"
 import BoxcarContext from "../contexts/BoxcarContext"
 import Card from "../components/Card"
 
@@ -7,17 +7,32 @@ function List() {
 
     const { boxcars, handleFavorite, handleDelete } = useContext(BoxcarContext)
 
+    const [dispList, setDispList ] = useState(boxcars)
+    
+    const [objValues, setObjValues] = useState({
+        textFilter: '',
+        countryFilter: 'all',
+        discontinuedFilter: false
+     })
 
-    const boxcarList = boxcars.map(b => (
+     useEffect(() => {
+        console.log('tick')
+     },[objValues])
+
+     const handleChange = (e) => {
+        const { name, value, type, checked } = e.currentTarget
+        console.log(name, value, type, checked)
+     }
+
+
+    const boxcarList = dispList.map(b => (
         <Card key={b.id} boxcar={b} onFavorite={handleFavorite} onDelete={handleDelete}/>
     ))
+
  
-
-
-
-
     return (
     <>
+    <Filter onChange={handleChange} objValues={objValues}/>
     <table>
         <thead>
             <tr>
