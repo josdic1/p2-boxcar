@@ -1,4 +1,5 @@
 import BoxcarProvider from './providers/BoxcarProvider'
+import LoaderModeProvider from './providers/LoaderModeProvider'
 import NavBar from './components/NavBar'
 import { Outlet } from 'react-router-dom'
 import viteLogo from '/vite.svg'
@@ -9,6 +10,9 @@ function App() {
 
   return (
     <>
+    <LoaderModeProvider>
+    {
+      <BoxcarProvider>
     <header>
       <div>
           <img src={viteLogo} className="logo" alt="Jeep logo" />
@@ -16,10 +20,10 @@ function App() {
           <NavBar />
           </header>
           <main>
-            <BoxcarProvider>
             <Outlet />
-            </BoxcarProvider>
           </main>
+            </BoxcarProvider>}
+            </LoaderModeProvider>
     </>
   )
 }

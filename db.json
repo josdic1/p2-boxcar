@@ -1,6 +1,5 @@
 {
-    "boxcars":
-[
+  "boxcars": [
     {
       "make": "International Harvester",
       "model": "Scout II",
@@ -9,7 +8,8 @@
       "year": 1974,
       "discontinued": true,
       "image": "",
-      "favorite": false
+      "favorite": false,
+      "id": "f8a1"
     },
     {
       "make": "Jeep",
@@ -19,7 +19,8 @@
       "year": 1984,
       "discontinued": true,
       "image": "",
-      "favorite": false
+      "favorite": false,
+      "id": "e97b"
     },
     {
       "make": "Ford",
@@ -29,7 +30,8 @@
       "year": 1978,
       "discontinued": true,
       "image": "",
-      "favorite": false
+      "favorite": false,
+      "id": "8938"
     },
     {
       "make": "Chevrolet",
@@ -39,7 +41,8 @@
       "year": 1982,
       "discontinued": true,
       "image": "",
-      "favorite": false
+      "favorite": false,
+      "id": "85c9"
     },
     {
       "make": "Toyota",
@@ -49,7 +52,8 @@
       "year": 1985,
       "discontinued": true,
       "image": "",
-      "favorite": false
+      "favorite": false,
+      "id": "69b5"
     },
     {
       "make": "Volvo",
@@ -59,7 +63,8 @@
       "year": 1989,
       "discontinued": true,
       "image": "",
-      "favorite": false
+      "favorite": false,
+      "id": "5812"
     },
     {
       "make": "Land Rover",
@@ -69,7 +74,8 @@
       "year": 1991,
       "discontinued": false,
       "image": "",
-      "favorite": false
+      "favorite": false,
+      "id": "e8ec"
     },
     {
       "make": "Mercedes-Benz",
@@ -79,7 +85,8 @@
       "year": 1990,
       "discontinued": false,
       "image": "",
-      "favorite": false
+      "favorite": false,
+      "id": "14be"
     },
     {
       "make": "Subaru",
@@ -89,7 +96,8 @@
       "year": 1983,
       "discontinued": true,
       "image": "",
-      "favorite": false
+      "favorite": false,
+      "id": "609f"
     },
     {
       "make": "Volkswagen",
@@ -99,8 +107,8 @@
       "year": 1986,
       "discontinued": true,
       "image": "",
-      "favorite": false
+      "favorite": false,
+      "id": "51d6"
     }
   ]
 }
-  
