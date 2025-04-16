@@ -13,8 +13,9 @@ return (
 <>
 { isLoading ? <Loader /> :
 <>
-<List />
 <Form />
+<List />
+
 </>
 }
 
