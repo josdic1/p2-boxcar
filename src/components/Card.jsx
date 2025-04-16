@@ -23,7 +23,8 @@ const onClick = (e) => {
     } else {
         if(name === 'edit') {
             setInEditMode(true)
-            setSelectedBoxcar(obj)
+            setSelectedBoxcar(boxcar)
+     
         } else {
             if(name === 'delete') {
                 onDelete(boxcar.id) 

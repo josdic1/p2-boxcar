@@ -6,17 +6,7 @@ function BoxcarProvider ({children}) {
     const { setIsLoading } = useContext(LoaderModeContext)
 
     const [boxcars, setBoxcars] = useState([])
-    const [selectedBoxcar, setSelectedBoxcar] = useState({
-       id:'',
-        make: '',
-        model: '',
-        manufacturer: '',
-        country: '',
-        year: 0,
-        discontinued: false,
-        image: '',
-        favorite: false
-    })
+    const [selectedBoxcar, setSelectedBoxcar] = useState({})
 
 
     useEffect(() => {
@@ -42,6 +32,24 @@ function BoxcarProvider ({children}) {
         }
     }
 
+    async function handleNew(obj) {
+        try {
+            const r = await fetch(`http://localhost:3000/boxcars/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(obj)
+            }) 
+            if(!r.ok) {
+                throw new Error("💥 Error");
+             }
+             const data = r.json()
+             const updated = [...boxcars, data]
+             setBoxcars(updated)
+        } catch (error) {console.error("❌ Caught error:", error);}
+    }
+
     async function handleFavorite(obj) {
         const updatedObj = {
             ...obj,
@@ -54,6 +62,24 @@ function BoxcarProvider ({children}) {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(updatedObj)
+            }) 
+            if(!r.ok) {
+                throw new Error("💥 Error");
+             }
+             const data = r.json()
+             const updated = boxcars.map(b => b.id === data.id ? data : b)
+             setBoxcars(updated)
+        } catch (error) {console.error("❌ Caught error:", error);}
+    }
+
+    async function handleUpdate(obj) {
+        try {
+            const r = await fetch(`http://localhost:3000/boxcars/${obj.id}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(obj)
             }) 
             if(!r.ok) {
                 throw new Error("💥 Error");
@@ -80,7 +106,7 @@ function BoxcarProvider ({children}) {
     return (
     <>
     <BoxcarContext.Provider
-        value={{ boxcars, setSelectedBoxcar, handleFavorite, handleDelete }}
+        value={{ boxcars, selectedBoxcar, setSelectedBoxcar, handleNew, handleFavorite, handleUpdate, handleDelete }}
     >
         {children}
     </BoxcarContext.Provider>

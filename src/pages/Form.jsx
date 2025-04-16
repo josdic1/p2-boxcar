@@ -3,8 +3,8 @@ import LoaderModeContext from "../contexts/LoaderModeContext"
 import BoxcarContext from "../contexts/BoxcarContext"
 
 function Form() {
-    const {selectedBoxcar} = useContext(BoxcarContext)
-    const {inEditMode} = useContext(LoaderModeContext)
+    const {selectedBoxcar, handleNew, handleUpdate} = useContext(BoxcarContext)
+    const {inEditMode, setInEditMode } = useContext(LoaderModeContext)
 
     const [formData, setFormData] = useState({
         make: '',
@@ -14,28 +14,45 @@ function Form() {
         year: 0,
         discontinued: false,
         image: '',
-        favorite: false
     })
 
     useEffect(() => {
-        if(inEditMode && !selectedBoxcar.id) {
-            console.log('yeah')
-        }
-    },[])
+       if(inEditMode) {
+        setFormData({
+            make: selectedBoxcar.make,
+            model: selectedBoxcar.model,
+            manufacturer: selectedBoxcar.manufacturer,
+            country: selectedBoxcar.country,
+            year: selectedBoxcar.year,
+            discontinued: selectedBoxcar.discontinued,
+            image: selectedBoxcar.image,
+        })
+       } 
+    },[inEditMode, selectedBoxcar])
+
 
     const onFormChange = (e) => {
         const { name, value, type, checked } = e.currentTarget
         setFormData(prev => ({
             ...prev,
-            [name]: type === 'text' ? value : checked 
+            [name]: type !== 'checkbox' ? value : checked 
         }))
     }
 
     const onSubmit = (e) => {
+    let updated;
         e.preventDefault()
         if(inEditMode) {
-
+            updated = {
+                ...formData,
+                id: selectedBoxcar.id,
+            }
+            handleUpdate(updated)  
+        } else {
+            updated = formData
+            console.log(updated)
         }
+        onClear()
     }
 
     const onClear = () => {
@@ -49,6 +66,7 @@ function Form() {
             image: '',
             favorite: false
         })
+        setInEditMode(false)
     }
 
 
@@ -65,7 +83,7 @@ function Form() {
     <div><label htmlFor="country">Country: </label>
     <input type="text" id="country" name="country" value={formData.country} onChange={onFormChange} placeholder="Country..." /></div>
     <div><label htmlFor="year">Year: </label>
-    <input type="number" id="year" name="year" value={formData.year > 0 ? formData.year : ''} onChange={onFormChange} placeholder="Year..." /></div>
+    <input type="number" id="year" name="year" value={formData.year} onChange={onFormChange} placeholder="Year..." /></div>
     <div><label htmlFor="image">Image: </label>
     <input type="text" id="image" name="image" value={formData.image} onChange={onFormChange} placeholder="Image..." /></div>
     <div><label htmlFor="discontinued">Avail? </label>
