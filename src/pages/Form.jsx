@@ -1,7 +1,9 @@
-import { useState, useContext } from "react"
+import { useState, useEffect, useContext } from "react"
 import LoaderModeContext from "../contexts/LoaderModeContext"
+import BoxcarContext from "../contexts/BoxcarContext"
 
 function Form() {
+    const {selectedBoxcar} = useContext(BoxcarContext)
     const {inEditMode} = useContext(LoaderModeContext)
 
     const [formData, setFormData] = useState({
@@ -15,6 +17,12 @@ function Form() {
         favorite: false
     })
 
+    useEffect(() => {
+        if(inEditMode && !selectedBoxcar.id) {
+            console.log('yeah')
+        }
+    },[])
+
     const onFormChange = (e) => {
         const { name, value, type, checked } = e.currentTarget
         setFormData(prev => ({
@@ -25,6 +33,9 @@ function Form() {
 
     const onSubmit = (e) => {
         e.preventDefault()
+        if(inEditMode) {
+
+        }
     }
 
     const onClear = () => {

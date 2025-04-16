@@ -3,9 +3,20 @@ import BoxcarContext from "../contexts/BoxcarContext"
 import LoaderModeContext from "../contexts/LoaderModeContext"
 
 function BoxcarProvider ({children}) {
-    const [boxcars, setBoxcars] = useState([])
-
     const { setIsLoading } = useContext(LoaderModeContext)
+
+    const [boxcars, setBoxcars] = useState([])
+    const [selectedBoxcar, setSelectedBoxcar] = useState({
+       id:'',
+        make: '',
+        model: '',
+        manufacturer: '',
+        country: '',
+        year: 0,
+        discontinued: false,
+        image: '',
+        favorite: false
+    })
 
 
     useEffect(() => {
@@ -69,7 +80,7 @@ function BoxcarProvider ({children}) {
     return (
     <>
     <BoxcarContext.Provider
-        value={{ boxcars, handleFavorite, handleDelete }}
+        value={{ boxcars, setSelectedBoxcar, handleFavorite, handleDelete }}
     >
         {children}
     </BoxcarContext.Provider>

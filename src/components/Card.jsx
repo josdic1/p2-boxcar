@@ -1,19 +1,29 @@
+import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
+import LoaderModeContext from "../contexts/LoaderModeContext"
+import BoxcarContext from "../contexts/BoxcarContext"
+
 
 function Card({ boxcar, onFavorite, onDelete }) {
+
+    const { setInEditMode } = useContext(LoaderModeContext)
+    const { setSelectedBoxcar } = useContext(BoxcarContext)
 
     const navigate = useNavigate()
 
 const onClick = (e) => {
+    let obj = boxcar
     const { name } = e.currentTarget
     if(name === 'star') {
         onFavorite(boxcar)
     } else {
         if(name === 'view') {
+            setSelectedBoxcar(obj)
             navigate(`/item/${boxcar.id}`)
     } else {
         if(name === 'edit') {
-
+            setInEditMode(true)
+            setSelectedBoxcar(obj)
         } else {
             if(name === 'delete') {
                 onDelete(boxcar.id) 
