@@ -9,11 +9,11 @@ function Form() {
     const [formData, setFormData] = useState({
         make: '',
         model: '',
-        manufacturer: '',
         country: '',
         year: 0,
         discontinued: false,
         image: '',
+        favorite: false
     })
 
     useEffect(() => {
@@ -21,11 +21,11 @@ function Form() {
         setFormData({
             make: selectedBoxcar.make,
             model: selectedBoxcar.model,
-            manufacturer: selectedBoxcar.manufacturer,
             country: selectedBoxcar.country,
-            year: selectedBoxcar.year,
+            year: selectedBoxcar.year || 0,
             discontinued: selectedBoxcar.discontinued,
             image: selectedBoxcar.image,
+            favorite: selectedBoxcar.favorite
         })
        } 
     },[inEditMode, selectedBoxcar])
@@ -61,7 +61,7 @@ function Form() {
             model: '',
             manufacturer: '',
             country: '',
-            year: '',
+            year: 0,
             discontinued: false,
             image: '',
             favorite: false
@@ -78,15 +78,13 @@ function Form() {
     <input type="text" id="make" name="make" value={formData.make} onChange={onFormChange} placeholder="Make..." /></div>
     <div><label htmlFor="model">Model: </label>
     <input type="text"id="model" name="model" value={formData.model} onChange={onFormChange} placeholder="Model..." /></div>
-    <div><label htmlFor="manufacturer">Manufacturer: </label>
-    <input type="text" id="manufacturer" name="manufacturer" value={formData.manufacturer} onChange={onFormChange} placeholder="Manufacturer..." /></div>
     <div><label htmlFor="country">Country: </label>
     <input type="text" id="country" name="country" value={formData.country} onChange={onFormChange} placeholder="Country..." /></div>
     <div><label htmlFor="year">Year: </label>
     <input type="number" id="year" name="year" value={formData.year} onChange={onFormChange} placeholder="Year..." /></div>
     <div><label htmlFor="image">Image: </label>
     <input type="text" id="image" name="image" value={formData.image} onChange={onFormChange} placeholder="Image..." /></div>
-    <div><label htmlFor="discontinued">Avail? </label>
+    <div><label htmlFor="discontinued">Discontinued: </label>
     <input type="checkbox" id="discontinued" name="discontinued" checked={formData.discontinued} onChange={onFormChange} /></div>
     <div>
     <button type='submit'>{inEditMode ? "Update" : "Create"}</button>

@@ -48,7 +48,6 @@ return (
         </button>
         </td>
         <td>{boxcar.make}</td>
-        <td>{boxcar.manufacturer}</td>
         <td>{boxcar.year}</td>
         <td>{boxcar.country}</td>
         <td>{boxcar.discontinued ? "✕" : "✓"}</td>

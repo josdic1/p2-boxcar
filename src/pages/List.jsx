@@ -24,7 +24,6 @@ function List() {
                 <th> ★ </th>
                 <th>View</th>
                 <th>Make</th>
-                <th>Manufacturer</th>
                 <th>Year</th>
                 <th>Country</th>
                 <th>Avail</th>
