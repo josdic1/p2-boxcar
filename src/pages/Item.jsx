@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from "react"
 import { useParams } from "react-router-dom"
 import BoxcarContext from "../contexts/BoxcarContext"
+import viteLogo from '/vite.svg'
 
 function Item() {
     const [thisBoxcar, setThisBoxcar] = useState('')
@@ -16,7 +17,7 @@ function Item() {
     return (
     <>
 
-    <img src={thisBoxcar.image} alt='photo' />
+ <img src={thisBoxcar.image === "" ? viteLogo : thisBoxcar.image} alt='photo' /> 
     </>
     )}
     

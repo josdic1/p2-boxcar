@@ -19,7 +19,7 @@
       "country": "USA",
       "year": 1984,
       "discontinued": true,
-      "image": "",
+      "image": "/src/assets/img/1984-wagoneer.jpeg",
       "favorite": false,
       "id": "e97b"
     },
@@ -29,8 +29,8 @@
       "manufacturer": "Ford",
       "country": "USA",
       "year": 1978,
-      "discontinued": true,
-      "image": "",
+      "discontinued": false,
+      "image": "/src/assets/img/1978-bronco.jpeg",
       "favorite": false,
       "id": "8938"
     },
@@ -41,7 +41,7 @@
       "country": "USA",
       "year": 1982,
       "discontinued": true,
-      "image": "",
+      "image": "/src/assets/img/1982-k5-blazer.jpeg",
       "favorite": false,
       "id": "85c9"
     },
@@ -52,7 +52,7 @@
       "country": "Japan",
       "year": 1985,
       "discontinued": true,
-      "image": "",
+      "image": "/src/assets/img/1985-land-cruiser-fj60.jpeg",
       "favorite": false,
       "id": "69b5"
     },
@@ -63,7 +63,7 @@
       "country": "Sweden",
       "year": 1989,
       "discontinued": true,
-      "image": "",
+      "image": "/src/assets/img/1989-240-wagon.jpg",
       "favorite": false,
       "id": "5812"
     },
@@ -74,7 +74,7 @@
       "country": "UK",
       "year": 1991,
       "discontinued": false,
-      "image": "",
+      "image": "/src/assets/img/1991-defender-110.jpg",
       "favorite": false,
       "id": "e8ec"
     },
@@ -85,7 +85,7 @@
       "country": "Germany",
       "year": 1990,
       "discontinued": false,
-      "image": "",
+      "image": "/src/assets/img/1990-g-class.jpg",
       "favorite": false,
       "id": "14be"
     },
@@ -96,7 +96,7 @@
       "country": "Japan",
       "year": 1983,
       "discontinued": true,
-      "image": "",
+      "image": "/src/assets/img/1983-brat.jpeg",
       "favorite": false,
       "id": "609f"
     },
@@ -107,7 +107,7 @@
       "country": "Germany",
       "year": 1986,
       "discontinued": true,
-      "image": "",
+      "image": "/src/assets/img/1986-vanagon.jpeg",
       "favorite": false,
       "id": "51d6"
     }
