@@ -50,7 +50,7 @@ function Form() {
             handleUpdate(updated)  
         } else {
             updated = formData
-            console.log(updated)
+            handleNew(updated)
         }
         onClear()
     }

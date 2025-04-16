@@ -109,6 +109,26 @@
       "image": "/src/assets/img/1986-vanagon.jpeg",
       "favorite": false,
       "id": "51d6"
+    },
+    {
+      "id": "e7f5",
+      "make": "Nissan",
+      "model": "G60-Patrol",
+      "manufacturer": "Nissan",
+      "country": "Japan",
+      "year": "1969",
+      "discontinued": false,
+      "image": "/src/assets/img/1969-g60-patrol.jpg"
+    },
+    {
+      "id": "a58d",
+      "make": "UAZ",
+      "model": "469B",
+      "manufacturer": "UAZ",
+      "country": "Russia",
+      "year": "1972",
+      "discontinued": false,
+      "image": "/src/assets/img/1972-469b.jpg"
     }
   ]
 }
