@@ -56,7 +56,7 @@ function BoxcarProvider ({children}) {
     async function handleDelete(id) {
         const updated = [...boxcars].filter(b => b.id !== id)
         try {
-            const r = await fetch(`http://localhost:3000/boxcars/${obj.id}`, {
+            const r = await fetch(`http://localhost:3000/boxcars/${id}`, {
                 method: 'DELETE'
             }) 
             if(!r.ok) {

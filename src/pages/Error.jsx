@@ -1,4 +1,5 @@
 import { useRouteError } from "react-router-dom"
+import NavBar from "../components/NavBar"
 
 function Error() {
 
@@ -6,8 +7,11 @@ function Error() {
 
 return (
 <>
+<NavBar/>
 <h1>Error!</h1>
-<h3>{error.status} || {error.message} || {error.statusText} </h3>
+<h3>{error.status}</h3> 
+<h4>{error.message}</h4>
+<h5>{error.statusText} </h5>
 </>
 )}
 
