@@ -6,8 +6,6 @@ import Card from "../components/Card"
 function List() {
 
     const { boxcars, handleFavorite, handleDelete } = useContext(BoxcarContext)
-
-    const [dispList, setDispList ] = useState(boxcars)
     
     const [objValues, setObjValues] = useState({
         textFilter: '',
@@ -15,24 +13,47 @@ function List() {
         discontinuedFilter: false
      })
 
+     const [ filteredList, setFilteredList ] = useState(boxcars)
+ 
      useEffect(() => {
-        console.log('tick')
-     },[objValues])
+      setFilteredList(boxcars)
+     },[])
 
-     const handleChange = (e) => {
-        const { name, value, type, checked } = e.currentTarget
-        console.log(name, value, type, checked)
-     }
+useEffect(() => {
+    const filters = {
+        tag: val => val.toLowerCase().includes(objValues.textFilter.toLowerCase()),
+        country: val => objValues.countryFilter === 'all' || val === objValues.countryFilter,
+        discontinued: val => !objValues.discontinuedFilter || val === true 
+    }
+const filtered = boxcars.filter(b =>
+  filters.tag(b.tag) &&
+  filters.country(b.country) &&
+  filters.discontinued(b.discontinued)
+)
+setFilteredList(filtered)
+    
+},[objValues, boxcars])
+    
 
 
-    const boxcarList = dispList.map(b => (
+
+    const boxcarList = filteredList.map(b => (
         <Card key={b.id} boxcar={b} onFavorite={handleFavorite} onDelete={handleDelete}/>
     ))
 
+    const handleChange = (e) => {
+      const { name, type, value, checked } = e.currentTarget
+   setObjValues(prev => ({
+    ...prev,
+    [name]: type === 'checkbox' ? checked : value
+   }))
+     
+    }
+ 
  
     return (
     <>
-    <Filter onChange={handleChange} objValues={objValues}/>
+    <Filter objValues={objValues} onChange={handleChange}/>
     <table>
         <thead>
             <tr>

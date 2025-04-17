@@ -131,28 +131,6 @@
       "image": "/src/assets/img/1972-469b.jpg",
       "favorite": false,
       "tag": "uaz 469b"
-    },
-    {
-      "id": "3ede",
-      "make": "",
-      "model": "",
-      "manufacturer": "",
-      "country": "",
-      "year": 0,
-      "discontinued": false,
-      "image": "",
-      "favorite": false
-    },
-    {
-      "id": "545c",
-      "make": "",
-      "model": "",
-      "manufacturer": "",
-      "country": "",
-      "year": 0,
-      "discontinued": false,
-      "image": "",
-      "favorite": false
     }
   ]
 }
