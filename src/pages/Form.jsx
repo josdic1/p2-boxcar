@@ -59,7 +59,6 @@ function Form() {
         setFormData({
             make: '',
             model: '',
-            manufacturer: '',
             country: '',
             year: 0,
             discontinued: false,
@@ -88,7 +87,7 @@ function Form() {
     <input type="checkbox" id="discontinued" name="discontinued" checked={formData.discontinued} onChange={onFormChange} /></div>
     <div>
     <button type='submit'>{inEditMode ? "Update" : "Create"}</button>
-    <button type='clear' onClick={onClear}>Clear</button>
+    <button type='button' onClick={onClear}>Clear</button>
     </div>
     </form>
     </>

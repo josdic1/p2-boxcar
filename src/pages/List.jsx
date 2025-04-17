@@ -25,7 +25,13 @@ useEffect(() => {
         country: val => objValues.countryFilter === 'all' || val === objValues.countryFilter,
         discontinued: val => !objValues.discontinuedFilter || val === true 
     }
-const filtered = boxcars.filter(b =>
+
+const normalizedBoxcars = boxcars.map(b => ({
+    ...b,
+    tag: b.tag || `${b.make} ${b.model}`.toLowerCase()
+}))
+
+const filtered = normalizedBoxcars.filter(b =>
   filters.tag(b.tag) &&
   filters.country(b.country) &&
   filters.discontinued(b.discontinued)

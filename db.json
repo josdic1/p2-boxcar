@@ -37,7 +37,7 @@
       "make": "Chevrolet",
       "model": "K5 Blazer",
       "country": "USA",
-      "year": 1982,
+      "year": "1982",
       "discontinued": true,
       "image": "/src/assets/img/1982-k5-blazer.jpeg",
       "favorite": false,
@@ -114,7 +114,7 @@
       "make": "Nissan",
       "model": "G60-Patrol",
       "country": "Japan",
-      "year": "1969",
+      "year": 1969,
       "discontinued": true,
       "image": "/src/assets/img/1969-g60-patrol.jpg",
       "favorite": false,
@@ -126,11 +126,31 @@
       "make": "UAZ",
       "model": "469B",
       "country": "Russia",
-      "year": "1972",
+      "year": 1972,
       "discontinued": true,
       "image": "/src/assets/img/1972-469b.jpg",
       "favorite": false,
       "tag": "uaz 469b"
+    },
+    {
+      "id": "c53d",
+      "make": "AMC",
+      "model": "Gremlin",
+      "country": "USA",
+      "year": 1970,
+      "discontinued": true,
+      "image": "/src/assets/img/1970-gremlin.jpg",
+      "favorite": false
+    },
+    {
+      "id": "ec6d",
+      "make": "DeTomaso",
+      "model": "Pantera",
+      "country": "Italy",
+      "year": "1974",
+      "discontinued": true,
+      "image": "/src/assets/img/1974-pantera-.jpg",
+      "favorite": false
     }
   ]
 }

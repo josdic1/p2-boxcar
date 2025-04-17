@@ -15,7 +15,7 @@ function BoxcarProvider ({children}) {
 
     useEffect(() => {
         fetchBoxcars()
-    },[boxcars])
+    },[])
     
 
     async function fetchBoxcars() {
@@ -84,7 +84,7 @@ function BoxcarProvider ({children}) {
             if(!r.ok) {
                 throw new Error("💥 Error");
              }
-             const data = r.json()
+             const data = await r.json()
              const updated = boxcars.map(b => b.id === data.id ? data : b)
              setBoxcars(updated)
         } catch (error) {console.error("❌ Caught error:", error);}
