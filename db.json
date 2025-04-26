@@ -4,7 +4,7 @@
       "make": "International Harvester",
       "model": "Scout II",
       "country": "USA",
-      "year": 1974,
+      "year": "1973",
       "discontinued": true,
       "image": "/src/assets/img/1974-scout-ii.jpg",
       "favorite": false,
@@ -73,7 +73,7 @@
       "year": 1991,
       "discontinued": false,
       "image": "/src/assets/img/1991-defender-110.jpg",
-      "favorite": false,
+      "favorite": true,
       "id": "0424",
       "tag": "land rover defender 110"
     },

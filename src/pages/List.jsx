@@ -19,26 +19,32 @@ function List() {
       setFilteredList(boxcars)
      },[])
 
-useEffect(() => {
-    const filters = {
-        tag: val => val.toLowerCase().includes(objValues.textFilter.toLowerCase()),
-        country: val => objValues.countryFilter === 'all' || val === objValues.countryFilter,
-        discontinued: val => !objValues.discontinuedFilter || val === true 
-    }
 
-const normalizedBoxcars = boxcars.map(b => ({
-    ...b,
-    tag: b.tag || `${b.make} ${b.model}`.toLowerCase()
-}))
-
-const filtered = normalizedBoxcars.filter(b =>
-  filters.tag(b.tag) &&
-  filters.country(b.country) &&
-  filters.discontinued(b.discontinued)
-)
-setFilteredList(filtered)
-    
-},[objValues, boxcars])
+     useEffect(() => {
+        const filters = {
+          tag: val => val.toLowerCase().includes(objValues.textFilter.toLowerCase()),
+          country: val => objValues.countryFilter === 'all' || val === objValues.countryFilter,
+          discontinued: val => !objValues.discontinuedFilter || val === true 
+        }
+      
+        const normalizedBoxcars = boxcars.map(b => ({
+          ...b,
+          tag: b.tag || `${b.make} ${b.model}`.toLowerCase()
+        }))
+      
+        const filtered = normalizedBoxcars.filter(b =>
+          filters.tag(b.tag) &&
+          filters.country(b.country) &&
+          filters.discontinued(b.discontinued)
+        )
+      
+        const sorted = filtered.sort((a, b) => b.favorite - a.favorite)
+      
+        setFilteredList(sorted)
+      
+      }, [objValues, boxcars])
+      
+      
     
 
 

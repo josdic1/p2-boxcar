@@ -13,9 +13,7 @@ function BoxcarProvider ({children}) {
         fetchBoxcars()
     },[])
 
-    useEffect(() => {
-        fetchBoxcars()
-    },[])
+  
     
 
     async function fetchBoxcars() {
@@ -44,7 +42,7 @@ function BoxcarProvider ({children}) {
             if(!r.ok) {
                 throw new Error("💥 Error");
              }
-             const data = r.json()
+             const data = await r.json()
              const updated = [...boxcars, data]
              setBoxcars(updated)
         } catch (error) {console.error("❌ Caught error:", error);}
@@ -52,25 +50,28 @@ function BoxcarProvider ({children}) {
 
     async function handleFavorite(obj) {
         const updatedObj = {
-            ...obj,
-            favorite: !obj.favorite
+          ...obj,
+          favorite: !obj.favorite
         }
         try {
-            const r = await fetch(`http://localhost:3000/boxcars/${obj.id}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(updatedObj)
-            }) 
-            if(!r.ok) {
-                throw new Error("💥 Error");
-             }
-             const data = r.json()
-             const updated = boxcars.map(b => b.id === data.id ? data : b)
-             setBoxcars(updated)
-        } catch (error) {console.error("❌ Caught error:", error);}
-    }
+          const r = await fetch(`http://localhost:3000/boxcars/${obj.id}`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedObj)
+          }) 
+          if (!r.ok) {
+            throw new Error("💥 Error");
+          }
+          const data = await r.json()  
+          const updated = boxcars.map(b => b.id === data.id ? data : b)
+          setBoxcars(updated)        
+        } catch (error) {
+          console.error("❌ Caught error:", error)
+        }
+      }
+      
 
     async function handleUpdate(obj) {
         try {
