@@ -4,7 +4,7 @@ function Loader() {
 
 return (
 <>
-<p>Loading...</p>
+<div className="spinner"></div>
 </>
 )}
 
