@@ -7,7 +7,7 @@
       "year": "1973",
       "discontinued": true,
       "image": "/src/assets/img/1974-scout-ii.jpg",
-      "favorite": false,
+      "favorite": true,
       "id": "7ec9",
       "tag": "international harvester scout ii"
     },
@@ -73,7 +73,7 @@
       "year": 1991,
       "discontinued": false,
       "image": "/src/assets/img/1991-defender-110.jpg",
-      "favorite": true,
+      "favorite": false,
       "id": "0424",
       "tag": "land rover defender 110"
     },
@@ -150,6 +150,16 @@
       "year": "1974",
       "discontinued": true,
       "image": "/src/assets/img/1974-pantera-.jpg",
+      "favorite": false
+    },
+    {
+      "id": "b369",
+      "make": "Ford",
+      "model": "Bronco",
+      "country": "USA",
+      "year": "1977",
+      "discontinued": false,
+      "image": "/src/assets/img/1977-bronco.jpg",
       "favorite": false
     }
   ]

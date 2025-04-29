@@ -6,6 +6,7 @@ return (
 <>
 <nav>
     <NavLink to='home'> Home </NavLink>
+    <NavLink to='/'> Logout </NavLink>
 </nav>
 </>
 )}
