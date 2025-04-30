@@ -1,6 +1,4 @@
 import { useContext } from "react"
-
-import Form from "../pages/Form"
 import List from "../pages/List"
 import Loader from "../components/Loader"
 import LoaderModeContext from "../contexts/LoaderModeContext"
@@ -13,7 +11,6 @@ return (
 <>
 { isLoading ? <Loader /> :
 <>
-<Form />
 <List />
 
 </>

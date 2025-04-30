@@ -149,6 +149,16 @@
       "discontinued": false,
       "image": "/src/assets/img/1977-bronco.jpg",
       "favorite": false
+    },
+    {
+      "id": "1aa8",
+      "make": "Land Rover",
+      "model": "Defender 90 SWB Islay Edition",
+      "country": "UK",
+      "year": "2015",
+      "discontinued": true,
+      "image": "/src/assets/img/2015-defender-90-swb-islay.jpg",
+      "favorite": false
     }
   ]
 }

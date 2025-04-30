@@ -142,3 +142,12 @@ tbody tr:hover {
     transform: rotate(360deg);
   }
 }
+
+.boxcar-profile {
+  width: 600px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}

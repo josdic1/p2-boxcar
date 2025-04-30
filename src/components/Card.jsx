@@ -6,25 +6,22 @@ import BoxcarContext from "../contexts/BoxcarContext"
 
 function Card({ boxcar, onFavorite, onDelete }) {
 
-    const { setInEditMode } = useContext(LoaderModeContext)
-    const { setSelectedBoxcar } = useContext(BoxcarContext)
+
+    const {  } = useContext(BoxcarContext)
 
     const navigate = useNavigate()
 
 const onClick = (e) => {
-    let obj = boxcar
+   
     const { name } = e.currentTarget
     if(name === 'star') {
         onFavorite(boxcar)
     } else {
         if(name === 'view') {
-            setSelectedBoxcar(obj)
             navigate(`/item/${boxcar.id}`)
     } else {
         if(name === 'edit') {
-            setInEditMode(true)
-            setSelectedBoxcar(boxcar)
-     
+            navigate(`/edit/${boxcar.id}`) 
         } else {
             if(name === 'delete') {
                 onDelete(boxcar.id) 

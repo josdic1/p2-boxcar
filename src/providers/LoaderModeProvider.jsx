@@ -3,13 +3,13 @@ import LoaderModeContext from "../contexts/LoaderModeContext"
 
 
 function LoaderModeProvider ({children}) {
-    const [ inEditMode, setInEditMode ] = useState(false)
+
     const [ isLoading, setIsLoading ] = useState(true)
 
 return (
 <>
 <LoaderModeContext.Provider
-value={{ inEditMode, setInEditMode, isLoading, setIsLoading }}>
+value={{ isLoading, setIsLoading }}>
     {children}
 </LoaderModeContext.Provider>
 </>

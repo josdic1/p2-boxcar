@@ -6,7 +6,7 @@ function BoxcarProvider ({children}) {
     const { setIsLoading } = useContext(LoaderModeContext)
 
     const [boxcars, setBoxcars] = useState([])
-    const [selectedBoxcar, setSelectedBoxcar] = useState({})
+
 
 
     useEffect(() => {
@@ -43,8 +43,8 @@ function BoxcarProvider ({children}) {
                 throw new Error("💥 Error");
              }
              const data = await r.json()
-             const updated = [...boxcars, data]
-             setBoxcars(updated)
+             const newList = [...boxcars, data]
+             setBoxcars(newList)
         } catch (error) {console.error("❌ Caught error:", error);}
     }
 
@@ -107,7 +107,7 @@ function BoxcarProvider ({children}) {
     return (
     <>
     <BoxcarContext.Provider
-        value={{ boxcars, selectedBoxcar, setSelectedBoxcar, handleNew, handleFavorite, handleUpdate, handleDelete }}
+        value={{ boxcars, handleNew, handleFavorite, handleUpdate, handleDelete }}
     >
         {children}
     </BoxcarContext.Provider>

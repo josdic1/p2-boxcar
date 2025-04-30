@@ -5,89 +5,87 @@ import Card from "../components/Card"
 
 function List() {
 
-    const { boxcars, handleFavorite, handleDelete } = useContext(BoxcarContext)
-    
-    const [objValues, setObjValues] = useState({
-        model: '',
-        make: 'all',
-        country: 'all',
-        discontinued: false
-     })
+  const { boxcars, handleFavorite, handleDelete } = useContext(BoxcarContext)
 
-     const [ filteredList, setFilteredList ] = useState(boxcars)
-     
-     useEffect(() => {
-      setFilteredList(boxcars)
-     },[])
+  const [objValues, setObjValues] = useState({
+    model: '',
+    make: 'all',
+    country: 'all',
+    discontinued: false
+  })
 
-     useEffect(() => {
-      const filtered = boxcars.reduce((acc, car) => {
-        const matches = {
+  const [filteredList, setFilteredList] = useState(boxcars)
 
-          model: objValues.model === "" || car.model.toLowerCase().includes(objValues.model.toLowerCase()),
+  useEffect(() => {
+    setFilteredList(boxcars)
+  }, [])
 
-          make: objValues.make === "all" || car.make.toLowerCase() === objValues.make.toLowerCase(),
+  useEffect(() => {
+    const filtered = boxcars.reduce((acc, car) => {
+      const matches = {
 
-          country: objValues.country === "all" || car.country.toLowerCase() === objValues.country.toLowerCase(),
+        model: objValues.model === "" || car.model.toLowerCase().includes(objValues.model.toLowerCase()),
 
-          discontinued: !objValues.discontinued || car.discontinued
-        }
+        make: objValues.make === "all" || car.make.toLowerCase() === objValues.make.toLowerCase(),
 
-        return Object.values(matches).every(Boolean) ? [...acc, car] : acc
+        country: objValues.country === "all" || car.country.toLowerCase() === objValues.country.toLowerCase(),
 
-      },[])
-      setFilteredList(filtered)
-     },[boxcars, objValues])
+        discontinued: !objValues.discontinued || car.discontinued
+      }
 
+      return Object.values(matches).every(Boolean) ? [...acc, car] : acc
 
-    function handleClear() {
-      setObjValues({
-        model: '',
-        make: 'all',
-        country: 'all',
-        discontinued: false
-      })
-    }
+    }, [])
+    setFilteredList(filtered)
+  }, [boxcars, objValues])
 
 
+  function handleClear() {
+    setObjValues({
+      model: '',
+      make: 'all',
+      country: 'all',
+      discontinued: false
+    })
+  }
 
 
+  const boxcarList = filteredList.map(b => (
+    <Card key={b.id} boxcar={b} onFavorite={handleFavorite} onDelete={handleDelete} />
+  ))
 
-    const boxcarList = filteredList.map(b => (
-        <Card key={b.id} boxcar={b} onFavorite={handleFavorite} onDelete={handleDelete}/>
-    ))
+  const handleChange = (e) => {
+    const { name, type, value, checked } = e.currentTarget
+    setObjValues(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }))
 
-    const handleChange = (e) => {
-      const { name, type, value, checked } = e.currentTarget
-   setObjValues(prev => ({
-    ...prev,
-    [name]: type === 'checkbox' ? checked : value
-   }))
-     
-    }
- 
- 
-    return (
+  }
+
+
+  return (
     <>
-    <Filter objValues={objValues} onChange={handleChange} onClear={handleClear}/>
-    <table>
+      <Filter objValues={objValues} onChange={handleChange} onClear={handleClear} />
+      <table>
         <thead>
-            <tr>
-                <th> ★ </th>
-                <th>View</th>
-                <th>Make</th>
-                <th>Year</th>
-                <th>Country</th>
-                <th>Avail</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
+          <tr>
+            <th> ★ </th>
+            <th>View</th>
+            <th>Make</th>
+            <th>Year</th>
+            <th>Country</th>
+            <th>Avail</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
         </thead>
         <tbody>
-            {boxcarList}
+          {boxcarList}
         </tbody>
-    </table>
+      </table>
     </>
-    )}
-    
-    export default List
+  )
+}
+
+export default List
