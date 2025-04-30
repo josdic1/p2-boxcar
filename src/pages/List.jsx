@@ -8,44 +8,48 @@ function List() {
     const { boxcars, handleFavorite, handleDelete } = useContext(BoxcarContext)
     
     const [objValues, setObjValues] = useState({
-        textFilter: '',
-        countryFilter: 'all',
-        discontinuedFilter: false
+        model: '',
+        make: 'all',
+        country: 'all',
+        discontinued: false
      })
 
      const [ filteredList, setFilteredList ] = useState(boxcars)
- 
+     
      useEffect(() => {
       setFilteredList(boxcars)
      },[])
 
-
      useEffect(() => {
-        const filters = {
-          tag: val => val.toLowerCase().includes(objValues.textFilter.toLowerCase()),
-          country: val => objValues.countryFilter === 'all' || val === objValues.countryFilter,
-          discontinued: val => !objValues.discontinuedFilter || val === true 
+      const filtered = boxcars.reduce((acc, car) => {
+        const matches = {
+
+          model: objValues.model === "" || car.model.toLowerCase().includes(objValues.model.toLowerCase()),
+
+          make: objValues.make === "all" || car.make.toLowerCase() === objValues.make.toLowerCase(),
+
+          country: objValues.country === "all" || car.country.toLowerCase() === objValues.country.toLowerCase(),
+
+          discontinued: !objValues.discontinued || car.discontinued
         }
-      
-        const normalizedBoxcars = boxcars.map(b => ({
-          ...b,
-          tag: b.tag || `${b.make} ${b.model}`.toLowerCase()
-        }))
-      
-        const filtered = normalizedBoxcars.filter(b =>
-          filters.tag(b.tag) &&
-          filters.country(b.country) &&
-          filters.discontinued(b.discontinued)
-        )
-      
-        const sorted = filtered.sort((a, b) => b.favorite - a.favorite)
-      
-        setFilteredList(sorted)
-      
-      }, [objValues, boxcars])
-      
-      
-    
+
+        return Object.values(matches).every(Boolean) ? [...acc, car] : acc
+
+      },[])
+      setFilteredList(filtered)
+     },[boxcars, objValues])
+
+
+    function handleClear() {
+      setObjValues({
+        model: '',
+        make: 'all',
+        country: 'all',
+        discontinued: false
+      })
+    }
+
+
 
 
 
@@ -65,7 +69,7 @@ function List() {
  
     return (
     <>
-    <Filter objValues={objValues} onChange={handleChange}/>
+    <Filter objValues={objValues} onChange={handleChange} onClear={handleClear}/>
     <table>
         <thead>
             <tr>

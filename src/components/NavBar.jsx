@@ -5,8 +5,9 @@ function NavBar() {
 return (
 <>
 <nav>
+    <NavLink to='/'> / </NavLink>
     <NavLink to='home'> Home </NavLink>
-    <NavLink to='/'> Logout </NavLink>
+    <NavLink to='spin'> ⟳ </NavLink>
 </nav>
 </>
 )}

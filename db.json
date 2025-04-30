@@ -8,8 +8,7 @@
       "discontinued": true,
       "image": "/src/assets/img/1974-scout-ii.jpg",
       "favorite": true,
-      "id": "7ec9",
-      "tag": "international harvester scout ii"
+      "id": "7ec9"
     },
     {
       "make": "Jeep",
@@ -19,8 +18,7 @@
       "discontinued": false,
       "image": "/src/assets/img/1984-wagoneer.jpeg",
       "favorite": false,
-      "id": "401d",
-      "tag": "jeep wagoneer"
+      "id": "401d"
     },
     {
       "make": "Ford",
@@ -30,8 +28,7 @@
       "discontinued": false,
       "image": "/src/assets/img/1978-bronco.jpeg",
       "favorite": false,
-      "id": "19a3",
-      "tag": "ford bronco"
+      "id": "19a3"
     },
     {
       "make": "Chevrolet",
@@ -41,8 +38,7 @@
       "discontinued": true,
       "image": "/src/assets/img/1982-k5-blazer.jpeg",
       "favorite": false,
-      "id": "e80c",
-      "tag": "chevrolet k5 blazer"
+      "id": "e80c"
     },
     {
       "make": "Toyota",
@@ -52,8 +48,7 @@
       "discontinued": true,
       "image": "/src/assets/img/1985-land-cruiser-fj60.jpeg",
       "favorite": false,
-      "id": "1e59",
-      "tag": "toyota land cruiser fj60"
+      "id": "1e59"
     },
     {
       "make": "Volvo",
@@ -63,8 +58,7 @@
       "discontinued": true,
       "image": "/src/assets/img/1989-240-wagon.jpg",
       "favorite": false,
-      "id": "253e",
-      "tag": "volvo 240 wagon"
+      "id": "253e"
     },
     {
       "make": "Land Rover",
@@ -74,8 +68,7 @@
       "discontinued": false,
       "image": "/src/assets/img/1991-defender-110.jpg",
       "favorite": false,
-      "id": "0424",
-      "tag": "land rover defender 110"
+      "id": "0424"
     },
     {
       "make": "Mercedes-Benz",
@@ -85,8 +78,7 @@
       "discontinued": false,
       "image": "/src/assets/img/1990-g-class.jpg",
       "favorite": false,
-      "id": "b087",
-      "tag": "mercedes benz g class"
+      "id": "b087"
     },
     {
       "make": "Subaru",
@@ -96,8 +88,7 @@
       "discontinued": true,
       "image": "/src/assets/img/1983-brat.jpeg",
       "favorite": false,
-      "id": "deff",
-      "tag": "subaru brat"
+      "id": "deff"
     },
     {
       "make": "Volkswagen",
@@ -107,8 +98,7 @@
       "discontinued": true,
       "image": "/src/assets/img/1986-vanagon.jpeg",
       "favorite": false,
-      "id": "c86e",
-      "tag": "volkswagen vanagon"
+      "id": "c86e"
     },
     {
       "make": "Nissan",
@@ -118,8 +108,7 @@
       "discontinued": true,
       "image": "/src/assets/img/1969-g60-patrol.jpg",
       "favorite": false,
-      "id": "a66a",
-      "tag": "nissan g60 patrol"
+      "id": "a66a"
     },
     {
       "id": "2d4b",
@@ -129,8 +118,7 @@
       "year": 1972,
       "discontinued": true,
       "image": "/src/assets/img/1972-469b.jpg",
-      "favorite": false,
-      "tag": "uaz 469b"
+      "favorite": false
     },
     {
       "id": "c53d",

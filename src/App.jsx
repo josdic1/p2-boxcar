@@ -10,20 +10,21 @@ function App() {
 
   return (
     <>
-    <LoaderModeProvider>
-    {
-      <BoxcarProvider>
-    <header>
-      <div>
-          <img src={viteLogo} className="logo" alt="Jeep logo" />
-          </div>
-          <NavBar />
-          </header>
-          <main>
-            <Outlet />
-          </main>
-            </BoxcarProvider>}
-            </LoaderModeProvider>
+      <LoaderModeProvider>
+        {
+          <BoxcarProvider>
+            <header>
+              <div>
+                <img src={viteLogo} className="logo" alt="Jeep logo" />
+              </div>
+              <NavBar />
+            </header>
+            <main>
+              <Outlet />
+            </main>
+          </BoxcarProvider>
+        }
+      </LoaderModeProvider>
     </>
   )
 }

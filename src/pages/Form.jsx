@@ -49,8 +49,8 @@ function Form() {
             }
             handleUpdate(updated)  
         } else {
-            updated = formData
-            handleNew(updated)
+            let added = formData
+            handleNew(added)
         }
         onClear()
     }
